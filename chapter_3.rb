@@ -54,3 +54,13 @@ z = 1
 if x > 0 || y > 0 || z > 0
   puts "正の数です"
 end
+
+#3-5-8
+season = '春'
+case season
+when '春'
+  puts 'アイスを買っていこう'
+else
+  puts 'あんまん買っていこう'
+end
+
