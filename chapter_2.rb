@@ -17,3 +17,13 @@ def change_integer
   puts a + b
 end
 change_integer
+
+#2-3-6
+def coffee
+  coffee = 300
+  esp = 100
+  sum = coffee + 2 * 100
+  puts "コーヒー : #{coffee}円"
+  puts "合計 : #{sum}円"
+end
+coffee
