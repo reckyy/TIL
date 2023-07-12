@@ -17,3 +17,18 @@ def equal?(number)
   end
 end
 equal?(2)
+
+#3-2-3
+def summer?(season)
+  if season != "夏"
+    puts "あんまん食べたい"
+  end
+end
+summer?("春")
+
+#3-2-4
+season = "夏"
+if season == "夏"
+  puts "かき氷食べたい"
+  puts "麦茶飲みたい"
+end
