@@ -33,3 +33,7 @@ total = 300 * 2
 p total
 tax = total * 0.08
 puts tax
+
+#2-7-9
+total = 300 * 2
+puts total
