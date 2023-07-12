@@ -65,7 +65,17 @@ else
 end
 
 #3-6-9
+#bad
 a = ['カフェラテ', 'モカ', 'モカ', 'カフェラテ', 'モカ', 'モカ', 'フラペチーノ']
 a.each do |string|
   puts string
 end
+
+#good
+2.times do
+  puts "カフェラテ"
+  2.times do
+    puts "モカ"
+  end
+end
+puts 'フラペチーノ'
