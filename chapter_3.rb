@@ -64,3 +64,8 @@ else
   puts 'あんまん買っていこう'
 end
 
+#3-6-9
+a = ['カフェラテ', 'モカ', 'モカ', 'カフェラテ', 'モカ', 'モカ', 'フラペチーノ']
+a.each do |string|
+  puts string
+end
