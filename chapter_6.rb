@@ -25,3 +25,21 @@ end
 p "カフェラテください" unless menu1[:caffe_latte] > 500
 
 #6-2-7
+
+
+#6-3-8
+menu1.each do |key, value|
+  puts "#{key} - #{value}"
+end
+
+#6-3-9
+menu1.each do |key, value|
+  puts "#{key} - #{value}" if value > 350
+end
+
+#6-3-11
+array = []
+menu1.each do |key, value|
+  array << "#{key}"
+end
+p array
