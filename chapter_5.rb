@@ -30,3 +30,20 @@ p ["100", "50", "300"].join(',')
 
 #5-4-11
 p "100,50,300".split(',')
+
+#5-5-12
+p ([1,2,3].map do |number|
+  number * 3
+end)
+
+#5-5-13
+p (["abc", "xyz"].map do |string|
+  string.reverse
+end
+)
+
+#5-5-14
+result = ["aya", "achi", "Tama"].map do |name|
+  name.downcase
+end
+p result.sort
