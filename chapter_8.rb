@@ -14,3 +14,11 @@ end
 caffe_latte = CaffeLatte.new
 p caffe_latte.class
 
+#8-3-4
+class Item
+  def name
+    "チーズケーキ"
+  end
+end
+item = Item.new
+p item.name
