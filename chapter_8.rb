@@ -59,3 +59,10 @@ item_4 = Item4.new("スコーン")
 p item4.name
 p item_4.name
 
+#8-6
+class Drink
+  def self.todays_special
+    "ホワイトモカ"
+  end
+end
+p Drink.todays_special
