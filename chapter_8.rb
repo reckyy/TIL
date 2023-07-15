@@ -8,3 +8,9 @@ p ({:coffee => 300, :caffe_latte => 400}).class
 new_hash = Hash.new
 puts new_hash
 
+#8-2-3
+class CaffeLatte
+end
+caffe_latte = CaffeLatte.new
+p caffe_latte.class
+
