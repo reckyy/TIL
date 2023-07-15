@@ -66,3 +66,20 @@ class Drink
   end
 end
 p Drink.todays_special
+
+#8-7
+class Item5
+  def name
+    @name
+  end
+  def name=(text)
+    @name = text
+  end
+end
+
+class Food < Item5
+
+end
+food = Food.new
+food.name= "チーズケーキ"
+p food.name
