@@ -22,3 +22,19 @@ class Item
 end
 item = Item.new
 p item.name
+
+#8-4-5
+class Item2
+  def name=(text)
+    @name = text
+  end
+
+  def name
+    @name
+  end
+end
+item2 = Item2.new
+item2.name= "チーズケーキ"
+p item2.name
+
+#8-5-6
