@@ -38,3 +38,24 @@ item2.name= "チーズケーキ"
 p item2.name
 
 #8-5-6
+class Item3
+  def initialize
+    p "商品を扱うオブジェクト"
+  end
+end
+Item3.new
+
+#8-5-7
+class Item4
+  def initialize(text)
+    @name = text
+  end
+  def name
+    @name
+  end
+end
+item4 = Item4.new("マフィン")
+item_4 = Item4.new("スコーン")
+p item4.name
+p item_4.name
+
