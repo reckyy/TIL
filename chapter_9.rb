@@ -19,3 +19,9 @@ end
 drink = Drink.new("モカ")
 drink.chocolate_chip
 p drink.name
+
+#9-2-3
+module EspressoShot
+  Price = 100
+end
+p EspressoShot::Price
