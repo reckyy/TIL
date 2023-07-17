@@ -1,11 +1,29 @@
 require 'date'
+require 'optparse'
+
+year_and_month = {}
+opt = OptionParser.new
+opt.on('-m value') { |month| year_and_month[:month] = month.to_i }
+opt.on('-y value') { |year| year_and_month[:year] = year.to_i }
+opt.parse!(ARGV)
+
+#入力がなかった場合、今日の日付にする
+today = Date.today
+if year_and_month.empty?
+  year_and_month[:month] = today.month
+  year_and_month[:year] = today.year
+elsif year_and_month[:year].nil?
+  year_and_month[:year] = today.year
+else year_and_month[:month].nil?
+  year_and_month[:month] = today.month
+end
 
 #曜日判断メソッド
-def judge_day(year, month,day)
+def judge_day(year, month, day)
   day_of_the_week = Date.new(year, month, day).saturday?
 end
 
-entered_day  = Date.new(2023, 8)
+entered_day  = Date.new(year_and_month[:year], year_and_month[:month])
 last_day = Date.new(entered_day.year, entered_day.month, -1).day
 first_day_of_the_week = Date.new(entered_day.year, entered_day.month, 1).cwday
 
