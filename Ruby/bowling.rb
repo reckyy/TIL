@@ -12,49 +12,38 @@ scores.each do |s|
   end
 end
 
-frames = []
-shots.each_slice(2).with_index do |s, index|
-  if index < 9
-    frames << s
-  elsif index == 9
-    frame10 = []
-    18.upto(shots.length - 1) do |i|
-      frame10 << shots[i] unless shots[i].zero?
-    end
-    if frame10.empty?
-      2.times do
-        frame10 << 0
-      end
-    end
-    frames << frame10
-    break
+frames = shots.each_slice(2).to_a
+
+frame10 = shots[18..].flatten.reject(&:zero?)
+frames.slice!(9, 11)
+frames << frame10
+
+def double_strike?(next_frame, next_to_frame)
+  next_frame && next_to_frame && next_frame[0] == 10
+end
+
+def calc_strike_point(next_frame, next_to_frame)
+  if double_strike?(next_frame, next_to_frame)
+    20 + (next_to_frame[0])
+  else
+    10 + next_frame[0..1].sum
   end
 end
 
-def calc_strike_point(time, frames)
-  if frames[time + 1][0] == 10
-    if time < 8
-      20 + (frames[time + 2] ? frames[time + 2][0] : 0)
+point = frames.each_with_index.sum do |frame, i|
+  next_frame = frames[i + 1]
+  next_to_frame = frames[i + 2]
+  if i < 9
+    if frame[0] == 10 # strike
+      calc_strike_point(next_frame, next_to_frame)
+    elsif frame.sum == 10 # spare
+      10 + next_frame[0]
     else
-      20 + (frames[time + 1][1] || 0)
+      frame.sum
     end
   else
-    time < 8 ? 10 + frames[time + 1].sum : 10 + frames[time + 1][0] + frames[time + 1][1]
+    frame.sum
   end
 end
 
-point = 0
-frames.each_with_index do |frame, i|
-  point += if i < 9
-             if frame[0] == 10 # strike
-               calc_strike_point(i, frames)
-             elsif frame.sum == 10 # spare
-               10 + frames[(i + 1)][0]
-             else
-               frame.sum
-             end
-           elsif i == 9
-             frame.sum
-           end
-end
 puts point
