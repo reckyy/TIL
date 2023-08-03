@@ -1,11 +1,19 @@
-1.upto(20) do |number|
+def fizz_buzz(number)
   if number % 3 == 0 && number% 5 == 0
-    puts "FizzBuzz"
+    "FizzBuzz"
   elsif number % 3 == 0
-    puts "Fizz"
+    "Fizz"
   elsif number % 5 == 0
-    puts "Buzz"
+    "Buzz"
   else
-    puts number
+    number
+  end
+end
+
+require 'minitest/autorun'
+
+class FizzBuzzTest < Minitest::Test
+  def test_fizz_buzz
+    assert_equal 'FizzBuzz', fizz_buzz(15)
   end
 end
