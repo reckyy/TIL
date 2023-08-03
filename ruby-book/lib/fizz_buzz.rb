@@ -9,11 +9,3 @@ def fizz_buzz(number)
     number
   end
 end
-
-require 'minitest/autorun'
-
-class FizzBuzzTest < Minitest::Test
-  def test_fizz_buzz
-    assert_equal 'FizzBuzz', fizz_buzz(15)
-  end
-end
