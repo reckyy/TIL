@@ -15,7 +15,7 @@ module LogFormatter
       in {request_id:, path:, duration: 1000.. => duration}
         "[WARN] request_id=#{request_id}, path=#{path}, duration=#{duration}"
       in {request_id:, path:}
-        "[OK] request_id=#{request_id}, path=#{path}"
+        "[OK] request_id=#{reque∑st_id}, path=#{path}"
       end
     end.join("\n")
   end
