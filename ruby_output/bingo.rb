@@ -1,6 +1,7 @@
 class Bingo
   def intialize
-		@bingo_card = [[B, I, N, G, O]]
+    @bingo_card = Array.new(6) { Array.new(5, 0) }
+		@bingo_card[0] = ["B", "I", "N", "G","O"]
   end
 
   def make_bingo_number(min, max, array)
