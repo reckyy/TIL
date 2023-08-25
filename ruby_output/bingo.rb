@@ -7,15 +7,17 @@ class Bingo
   end
 
   def make_bingo_number(min, max, array)
-		@bingo_number = Random.new
-		@bingo_number.rand(min..max)
-	  array.include?(@bingo_number) ? make_bingo_number(min, max, array) : @bingo_number
+		bingo_number = rand(min..max)
+	  array.include?(bingo_number) ? make_bingo_number(min, max, array) : bingo_number
 	end
 
   def insert_bingo_number
+    current_rand_number = []
 		1.upto(5) do |row|
 			5.times do |col|
-				@bingo_card[row][col] = make_bingo_number((15 * col), (15 * (col + 1)), @bingo_card)  
+        new_rand_number = make_bingo_number((15 * col), (15 * (col + 1)), current_rand_number)
+				@bingo_card[row][col] = new_rand_number
+        current_rand_number << new_rand_number
 			end
 		end
 		@bingo_card
@@ -24,7 +26,7 @@ class Bingo
 	def generate_card
 	  insert_bingo_number
 		6.times do |i|
-			puts @bingo_card[i].join(` | `)
+			puts @bingo_card[i].map { |number| number.to_s.rjust(2) }.join(' | ')
 		end
 	end 
 
