@@ -1,4 +1,4 @@
-require 'debug'
+
 def parse_file
   all_file = Dir.glob('*').sort
   div = all_file.size / 3
@@ -9,10 +9,10 @@ def parse_file
 end
 
 def ls_v1(all_file, total_row, width)
-  all_sort_file = all_file.each_slice(3).to_a
+  all_sort_file = all_file.each_slice(5).to_a
   total_row.times do |row|
     3.times do |col|
-      file_name = all_sort_file[row][col]
+      file_name = all_sort_file[col][row]
       print file_name.ljust(width) unless file_name.nil?
     end
     puts
