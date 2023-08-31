@@ -1,5 +1,5 @@
 
-initial_row = initial_row
+initial_row = 3
 
 def parse_file
   all_file = Dir.glob('*').sort
