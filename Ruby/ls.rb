@@ -1,10 +1,11 @@
+# frozen_string_literal: true
 
 initial_row = 3
 
 def parse_file
   all_file = Dir.glob('*').sort
   div, mod = all_file.size.divmod(initial_row)
-  total_row = mod.zero? div : (div + 1)
+  total_row = mod.zero? ? div : (div + 1)
   width = all_file.max_by(&:length).length + 7
   [all_file, total_row, width]
 end
