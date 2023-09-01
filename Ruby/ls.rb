@@ -4,8 +4,8 @@ initial_row = 3
 def parse_file
   all_file = Dir.glob('*').sort
   div, mod = all_file.size.divmod(initial_row)
-  total_row = (mod == 0) ? div : (div + 1)
-  width = all_file.max { |a, b| a.length <=> b.length }.size + 7
+  total_row = mod.zero? div : (div + 1)
+  width = all_file.max_by(&:length).length + 7
   [all_file, total_row, width]
 end
 
@@ -27,7 +27,8 @@ ls_v1(all_file, total_row, width)
 def ls_v2(all_file, total_row, width)
   grouped_files = all_file.map.with_index do |file, idx|
     [idx % total_row, file]
-  end.sort.each_slice(initial_row).to_a
+  end
+  grouped_files = grouped_files.group_by { |div, _| div }
 
   total_row.times do |row|
     initial_row.times do |col|
