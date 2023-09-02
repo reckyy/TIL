@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
-def parse_file(initial_row)
-  aDir.glob('*').sort
+def parse_file
+  Dir.glob('*').sort
 end
 
-def calculate_row_and_space(initial_row, all_file)
-  div, mod = all_file.size.divmod(initial_row)
+def calculate_row_and_space(initial_row, all_files)
+  div, mod = all_files.size.divmod(initial_row)
   total_row = mod.zero? ? div : (div + 1)
-  width = all_file.max_by(&:length).length + 7
+  width = all_files.max_by(&:length).length + 7
   [total_row, width]
 end
 
 initial_row = 3
-all_file = parse_file
-total_row, width = calculate_row_and_space(initial_row, all_file)
+all_files = parse_file
+total_row, width = calculate_row_and_space(initial_row, all_files)
 
-def ls_v1(initial_row, all_file, total_row, width)
-  all_sort_file = all_file.each_slice(total_row).to_a
+def ls_v1(initial_row, all_files, total_row, width)
+  all_sort_file = all_files.each_slice(total_row).to_a
   total_row.times do |col|
     initial_row.times do |row|
       file_name = all_sort_file[row][col]
@@ -26,8 +26,8 @@ def ls_v1(initial_row, all_file, total_row, width)
   end
 end
 
-def ls_v2(initial_row, all_file, total_row, width)
-  grouped_files = all_file.map.with_index do |file, idx|
+def ls_v2(initial_row, all_files, total_row, width)
+  grouped_files = all_files.map.with_index do |file, idx|
     [idx % total_row, file]
   end
   grouped_files = grouped_files.group_by { |div, _| div }
@@ -40,5 +40,5 @@ def ls_v2(initial_row, all_file, total_row, width)
   end
 end
 
-ls_v1(initial_row, all_file, total_row, width)
-ls_v2(initial_row, all_file, total_row, width)
+ls_v1(initial_row, all_files, total_row, width)
+ls_v2(initial_row, all_files, total_row, width)
