@@ -50,7 +50,7 @@ def convert_to_file_type(file_stat)
 end
 
 def convert_to_file_permission(file_stat)
-  file_permission_number = file_stat.mode.to_s(8).slice(2..4)
+  file_permission_number = file_stat.mode.to_s(8).slice(-3..-1)
   file_permission_string = {
     0 => '---',
     1 => '--x',
