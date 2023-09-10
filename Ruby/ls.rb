@@ -36,16 +36,16 @@ end
 
 def convert_to_file_type(file_stat)
   all_file_type = {
-    file: "-",
-    directory: "d",
-    characterSpecial: "c",
-    blockSpecial: "b",
-    fifo: "p",
-    link: "l",
-    socket: "s",
-    unknown: "u"
+    file: '-',
+    directory: 'd',
+    characterSpecial: 'c',
+    blockSpecial: 'b',
+    fifo: 'p',
+    link: 'l',
+    socket: 's',
+    unknown: 'u'
   }
-  file_type = all_file_type[file_stat.ftype.to_sym]
+  all_file_type[file_stat.ftype.to_sym]
 end
 
 def convert_to_file_permission(file_stat)
