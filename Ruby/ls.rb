@@ -69,6 +69,7 @@ def convert_to_file_permission(file_stat)
 end
 
 def get_file_stat(all_files, file_list)
+  total_blocks = 0
   all_files.each do |file|
     file_stat = []
     fs = File::Stat.new(file)
